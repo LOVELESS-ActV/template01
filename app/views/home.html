@@ -1,0 +1,29 @@
+<div ng-controller="homeController">
+  <carousel>
+    <ul class="container unselectable">
+      <li id="carouselarrowleft" class="unselectable link" ng-click="CarouselPreviousSlide()">
+        <p>
+          <
+        </p>
+      </li>
+      <li rn-carousel class="slider slide_{{$index}}" ng-repeat="slide in slides">
+        <img ng-src="{{slide.image}}" alt="{{slide.alt}}">
+      </li>
+      <li id="carouselarrowright" class="unselectable link" ng-click="CarouselNextSlide()">
+        <p>
+          >
+        </p>
+      </li>
+    </ul>
+    <aside class="visual visual_{{$index}} unselectable" ng-repeat="slide in slides" style="{{$index > 0 ? 'display:none;' : ''}}">
+      <div class="visual_data">
+        <h1 class="visual_title" data-i18n="{{slide.title}}"></h1>
+        <p class="visual_desc" data-i18n="{{slide.body}}"></p>
+      </div>
+      <div class="visual_sidetext">
+        <p class="visual_sidetext_startingat" data-i18n="_SideText1_"></p>
+        <p class="visual_sidetext_amount">{{slide.sidetext}}<span class="symbol">@</span></p>
+      </div>
+    </aside>
+  </carousel>
+</div>

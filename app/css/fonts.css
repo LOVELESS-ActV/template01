@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'FuturaStd Book';
+    src: url('../fonts/futurastd-book.woff') format('woff'),
+         url('../fonts/futurastd-book.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}

@@ -1,0 +1,29 @@
+/*All the code of this website was made by LOVELESS-Act.V(dusk@laposte.net)*/
+
+#navbar ul {
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  line-height: 28px;
+  padding: 10px 0 10px 0;
+}
+
+#toolbar {
+  background-color: transparent !important;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  width: 100% !important;
+}
+
+#language {
+ margin-left: 5px;
+}
+
+#language {
+  background-color: transparent !important;
+}
+
+#footerinfo #info_sav::after {
+  top: -18vw;
+}

@@ -1,0 +1,36 @@
+#mainview .visual {
+  position: absolute;
+  top: 75vw;
+  left: 0px;
+  width: 50vw;
+  height: 18.5vw;
+  justify-content: space-between;
+}
+
+#mainview .visual_data {
+  padding: 13px 2vw 0 2vw;
+}
+
+#mainview .visual .visual_title {
+  font-size: 3vw;
+}
+
+#mainview .visual .visual_desc {
+  font-size: 1.8vw;
+}
+
+#mainview .visual .visual_price::before {
+  margin: -1.4vw 0 0 -11.3vw;
+}
+
+#mainview .visual .visual_price .visual_price_startingat {
+  font-size: 1.8vw;
+}
+
+#mainview .visual .visual_price .visual_price_amount {
+  font-size: 4vw;
+}
+
+#mainview .visual .visual_price .visual_price_amount .currencysymbol {
+  font-size: 2vw;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="Template">
+  <head>
+    <meta charset="utf-8">
+    <title>Title</title>
+
+    <!-- All the code of this website was made by LOVELESS-Act.V(dusk@laposte.net) -->
+    <link rel="stylesheet" href="app/css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1580px)" href="app/css/style_medium.css" />
+    <link rel="stylesheet" media="screen and (max-width: 1366px)" href="app/css/style_mobile.css" />
+    <link rel="stylesheet" media="screen and (max-width: 546px)" href="app/css/style_small.css" />
+    <link rel="stylesheet" href="app/css/home.css">
+    <link rel="stylesheet" media="screen and (max-width: 1000px)" href="app/css/home_mobile.css" />
+    <link rel="stylesheet" media="screen and (max-width: 546px)" href="app/css/home_small.css" />
+    <link rel="stylesheet" href="app/css/fonts.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- small free-to-use service for Localization from https://github.com/lavinjj/angularjs-localizationservice -->
+    <script type="text/javascript" src="app/js/localize.js"></script>
+
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controller/mainController.js"></script>
+    <script type="text/javascript" src="app/controller/homeController.js"></script>
+  </head>
+  <body ng-controller="mainController">
+    <header>
+      <div id="logo">
+        <img src="app/svg/logo.svg" alt="Title"/>
+      </div>
+      <div id="nav">
+        <nav id="navbar">
+          <ul>
+            <li class="unselectable link" data-i18n="_Menu1_"></li>
+            <li class="unselectable link" data-i18n="_Menu2_" ng-click="ToggleSubMenu()"></li>
+            <li class="unselectable link" data-i18n="_Menu3_"></li>
+            <li class="unselectable link" data-i18n="_Menu4_"></li>
+            <li class="unselectable link" data-i18n="_Menu5_"></li>
+          </ul>
+        </nav>
+        <div id="toolbar">
+          <ul id="language">
+            <li><a id="lang_fr" class="link unselectable" ng-click="setLanguage('fr')">FR</a></li>
+            <li class="unselectable">/</li>
+            <li><a id="lang_en" class="link unselectable" ng-click="setLanguage('en')">EN</a></li>
+          </ul>
+          <div id="buttons">
+            <button id="cartbutton" class="button link" type="button" name="cart"><i class="icon"></i></button><button id="accountbutton" class="button link" type="button" name="account" ng-click="ToggleAccount()"><i class="icon"></i></button>
+          </div>
+          <div id="login">
+            <form>
+              <input id="loginemail" type="email" name="email" placeholder="{{('_EMAIL_' | i18n).length > 0 ? ('_EMAIL_' | i18n) : emailplaceholder}}" ng-model="email" required/>
+              <div>
+                <input id="loginpassword" type="password" name="password" placeholder="{{('_PASSWORD_' | i18n).length > 0 ? ('_PASSWORD_' | i18n) : passwordplaceholder}}" required/>
+                <button id="loginsubmit" class="link" type="submit" name="button" ng-click="FakeLogin()">OK</button>
+              </div>
+            </form>
+          </div>
+          <div id="account" class="unselectable">
+            <p id="acc_email" ng-bind="email">
+
+            </p>
+            <ul id="acc_menu">
+              <li><i class="icon myacc"></i><span data-i18n="_MYACCOUNT_"></span></li>
+              <li><i class="icon info"></i><span data-i18n="_INFOS_"></span></li>
+              <li><i class="icon purchases"></i><span data-i18n="_PURCHASES_"></span></li>
+              <li><i class="icon addresses"></i><span data-i18n="_ADDRESSES_"></span></li>
+              <li><i class="icon newsletter"></i><span data-i18n="_NEWSLETTER_"></span></li>
+              <li><i class="icon sponsorship"></i><span data-i18n="_SPONSORSHIP_"></span></li>
+            </ul>
+            <button id="logout" type="button" name="button" data-i18n="_LOGOUT_" ng-click="FakeLogout()"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="submenu">
+      <div class="container">
+        <div class="blockleft unselectable">
+          <img class="link" src="app/img/blockleft.jpg" alt="BOSS" />
+        </div>
+        <div class="blockmiddle unselectable">
+          <div id="category1">
+            <h2 data-i18n="_CATEGORY1_"></h2>
+            <ul>
+              <li class="link" ng-repeat="item in cat1items">{{item.name}}</li>
+            </ul>
+          </div>
+          <hr>
+          <div id="category2and3">
+            <h2 data-i18n="_CATEGORY2_"></h2>
+            <ul id="category2">
+              <li class="link" ng-repeat="item in cat2items" data-i18n="_{{item.name}}_"></li>
+            </ul>
+            <h2 data-i18n="_CATEGORY3_"></h2>
+            <ul id="category3">
+              <li class="link" ng-repeat="item in cat3items" data-i18n="_{{item.name}}_"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="blockright unselectable">
+          <img class="link" ng-repeat="ad in ads" ng-src="{{ad.img}}" alt="{{ad.alt}}">
+          <p class="link" data-i18n="_SEEALLITEMS_"></p>
+        </div>
+      </div>
+    </div>
+    <div id="mainview" ng-view>
+    </div>
+    <footer>
+      <div id="brandings">
+        <p data-i18n="_Branding_"></p>
+        <p><span data-i18n="_PoweredBy_"></span></p>
+        <img src="app/svg/pblogo.svg" alt="LOVELESS-Act.V"/>
+      </div>
+    </footer>
+  </body>
+</html>
